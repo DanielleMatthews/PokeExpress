@@ -14,10 +14,8 @@ app.get('/pokemon', function(req, res){
     res.render('Index', {pokemon : pokemon})
 })
 
-app.get('/pokemon/:indexOfPokeArray', (req, res) => {
-    res.render('Show', {
-        poke: pokemon[req.params.indexOfPokeArray]
-    })
+app.get('/pokemon/:id', (req, res) => {
+    res.send(req.params.id)
 })
 
 app.listen(port, () => {

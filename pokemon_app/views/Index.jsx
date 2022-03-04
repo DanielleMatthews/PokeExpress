@@ -4,16 +4,29 @@ const pokemon = require('../models/pokemon')
 class Index extends React.Component{
     render(){
         
-        const poke = this.props.poke
+        const {pokemon} = this.props
         return(
-            <div>
-                <h1> All Pokemon </h1>
-                    {pokemon.map((poke, i) => {
-                        return(
-                            <h3> {poke.name} </h3>
-                        )
-                    })}
-            </div>
+            <html lang="en" >
+            <head>
+                <meta charset="UTF-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />                    
+                <title> Pokémon </title>
+            </head>
+            <body>
+                <div>
+                    <h1> All Pokémon </h1>
+                    <ul>
+                        {pokemon.map((poke, i) => {
+                              return(
+                                <li>
+                                    {poke.name}
+                                </li>                                )
+                        })}
+                    </ul>
+                </div>
+            </body>
+        </html>
         )
     }
 }
