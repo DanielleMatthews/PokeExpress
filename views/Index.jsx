@@ -2,9 +2,9 @@ const React = require('react')
 
 class Index extends React.Component{
     render(){
+    const pokemon = this.props.pokemon
+    console.log(pokemon)
         
-        const pokemon = this.props.pokemon
-        console.log(pokemon)
         return(
             <html lang="en" >
             <head>
@@ -25,6 +25,9 @@ class Index extends React.Component{
                                 )
                         })}
                     </ul>
+                    <nav> 
+                        <a href ="/pokemon/new"> Create a New Pokémon </a>
+                    </nav>
                 </div>
             </body>
         </html>
