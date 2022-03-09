@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const pokeSchema = new mongoose.Schema({
+const pokemonSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    // image: 
+    img: {type: String, require: true}
 })
-const Pokemon = mongoose.model('Pokemon', pokeSchema)
+const Pokemon = mongoose.model('Pokemon', pokemonSchema)
 
 
 module.exports = Pokemon
