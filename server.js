@@ -14,47 +14,49 @@ app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
-app.get('/', (req, res) => {
-    res.send('<h1> Welcome to the Pokémon App!! </h1>')
-})
 
 app.get('/pokemon/seed', (req, res)=>{
   Pokemon.create([
       {
           name:'bulbasaur',
           image:'http://img.pokemondb.net/artwork/bulbasaur',
-      },
-      {
-          name:'ivysaur',
-          image:'http://img.pokemondb.net/artwork/ivysaur',
-      },       
-      {
-          name:'venusaur',
-          image:'http://img.pokemondb.net/artwork/venusaur',
-      },
-      {
-          name:'charmander',
-          image:'http://img.pokemondb.net/artwork/charmander',
-      },
-      {
-          name:'charizard',
-          image:'http://img.pokemondb.net/artwork/charizard',
-      },
-      {
-          name:'squirtle',
-          image:'http://img.pokemondb.net/artwork/squirtle',
-      },
-      {
-          name:'wartortle',
-          image:'http://img.pokemondb.net/artwork/wartortle',
-      },
-      {
-          name:'jigglypuff',
-          image:'http://img.pokemondb.net/artwork/jigglypuff',
-      },
-  ], (err, data)=>{
-      res.redirect('/pokemon');
-  })
+        },
+        {
+            name:'ivysaur',
+            image:'http://img.pokemondb.net/artwork/ivysaur',
+        },       
+        {
+            name:'venusaur',
+            image:'http://img.pokemondb.net/artwork/venusaur',
+        },
+        {
+            name:'charmander',
+            image:'http://img.pokemondb.net/artwork/charmander',
+        },
+        {
+            name:'charizard',
+            image:'http://img.pokemondb.net/artwork/charizard',
+        },
+        {
+            name:'squirtle',
+            image:'http://img.pokemondb.net/artwork/squirtle',
+        },
+        {
+            name:'wartortle',
+            image:'http://img.pokemondb.net/artwork/wartortle',
+        },
+        {
+            name:'jigglypuff',
+            image:'http://img.pokemondb.net/artwork/jigglypuff',
+        },
+    ], (err, data)=>{
+        res.redirect('/pokemon');
+    })
+})
+
+//HOME
+app.get('/', (req, res) => {
+    res.send('Home')
 })
 
 //index show ALL
