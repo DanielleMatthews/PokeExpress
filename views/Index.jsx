@@ -3,8 +3,7 @@ const React = require('react')
 class Index extends React.Component{
     render(){
     const pokemon = this.props.pokemon
-    console.log(pokemon)
-        
+    
         return(
             <html lang="en" >
             <head>

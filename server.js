@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const pokemon = require('./models/pokemon.js')
+// const pokemon = require('./models/pokemon.js')
 const mongoose = require('mongoose')
 const Pokemon = require('./models/pokemon.js')
 const methodOverride = require('method-override')
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
-app.use(express.static('public'))
+// app.use(express.static('public'))
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -95,7 +95,7 @@ app.put('/pokemon/:id', (req, res) => {
 })
 
 //EDIT
-app.get('/fruits/:id/edit', (req, res)=>{
+app.get('/pokemon/:id/edit', (req, res)=>{
     Pokemon.findById(req.params.id, (err, foundPokemon) => { //find the fruit
         if(!err){
             res.render('Edit', {
