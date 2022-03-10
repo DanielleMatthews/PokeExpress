@@ -7,7 +7,7 @@ const Pokemon = require('./models/pokemon.js')
 const methodOverride = require('method-override')
 const port = 3000
 
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
 
 app.set('view engine', 'jsx')
@@ -26,44 +26,44 @@ app.get('/', (req, res) => {
 //     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"},
 //     {name: "jigglypuff", img: "http://img.pokemondb.net/artwork/jigglypuff"}
 //  ]
-// app.get('/pokemon/seed', (req, res)=>{
-//   Pokemon.create([
-//       {
-//           name:'bulbasaur',
-//           img:'http://img.pokemondb.net/artwork/bulbasaur ',
-//       },
-//       {
-//           name:'ivysaur',
-//           img:'http://img.pokemondb.net/artwork/ivysaur ',
-//       },       
-//       {
-//           name:'venusaur',
-//           img:'http://img.pokemondb.net/artwork/venusaur ',
-//       },
-//       {
-//           name:'charmander',
-//           img:'http://img.pokemondb.net/artwork/charmander ',
-//       },
-//       {
-//           name:'charizard',
-//           img:'http://img.pokemondb.net/artwork/charizard ',
-//       },
-//       {
-//           name:'squirtle',
-//           img:'http://img.pokemondb.net/artwork/squirtle ',
-//       },
-//       {
-//           name:'wartortle',
-//           img:'http://img.pokemondb.net/artwork/wartortle ',
-//       },
-//       {
-//           name:'jigglypuff',
-//           img:'http://img.pokemondb.net/artwork/jigglypuff ',
-//       },
-//   ], (err, data)=>{
-//       res.redirect('/pokemon');
-//   })
-// })
+app.get('/pokemon/seed', (req, res)=>{
+  Pokemon.create([
+      {
+          name:'bulbasaur',
+          image:'http://img.pokemondb.net/artwork/bulbasaur',
+      },
+      {
+          name:'ivysaur',
+          image:'http://img.pokemondb.net/artwork/ivysaur',
+      },       
+      {
+          name:'venusaur',
+          image:'http://img.pokemondb.net/artwork/venusaur',
+      },
+      {
+          name:'charmander',
+          image:'http://img.pokemondb.net/artwork/charmander',
+      },
+      {
+          name:'charizard',
+          image:'http://img.pokemondb.net/artwork/charizard',
+      },
+      {
+          name:'squirtle',
+          image:'http://img.pokemondb.net/artwork/squirtle',
+      },
+      {
+          name:'wartortle',
+          image:'http://img.pokemondb.net/artwork/wartortle',
+      },
+      {
+          name:'jigglypuff',
+          image:'http://img.pokemondb.net/artwork/jigglypuff',
+      },
+  ], (err, data)=>{
+      res.redirect('/pokemon');
+  })
+})
 
 //index show ALL
 app.get('/pokemon', function(req, res){
@@ -88,17 +88,31 @@ app.get('/pokemon/:id', (req, res) => {
     })
 })
 
-// //DELETE
-// app.delete('/pokemon/:id', (req, res) => {
-//     Pokemon.findByIdAndRemove(req.params.id, (err, data) => {
-//       res.redirect('/pokemon')
-//     })
-// })
+//DELETE
+app.delete('/pokemon/:id', (req, res) => {
+    Pokemon.findByIdAndRemove(req.params.id, (err, data) => {
+      res.redirect('/pokemon')
+    })
+})
 
 //PUT
 app.put('/pokemon/:id', (req, res) => {
     Pokemon.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updadedModel) => {
         res.redirect('/pokemon')
+    })
+})
+
+//EDIT
+app.get('/fruits/:id/edit', (req, res)=>{
+    Pokemon.findById(req.params.id, (err, foundPokemon) => { //find the fruit
+        if(!err){
+            res.render('Edit', {
+            pokemon: foundPokemon //pass in found fruit
+            }
+        )
+        } else {
+            res.send({ msg: err.message })
+        }
     })
 })
 

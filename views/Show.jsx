@@ -9,7 +9,7 @@ class Show extends React.Component{
                 <ul>  
                     <li>
                         <h3> Their name is {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)} </h3> 
-                        <img src = {`${pokemon.img}.jpg`} height = "160px" width = "160px"></img>
+                        <img src = {`${pokemon.image}.jpg`} height = "160px" width = "160px"></img>
                         <a href = {`/pokemon`}> Home Page </a>
                     </li>                                
                 </ul>
