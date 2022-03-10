@@ -6,6 +6,7 @@ class DefaultLayout extends React.Component{
     return (
       <html lang="en" dir="ltr">
         <head>
+        <link rel="stylesheet" href="/css/app.css" />
         {/* charset needs to be Camel Cased in JSX */}
             <meta charSet="utf-8"/>
         {/* This let us dynamically create the title */}

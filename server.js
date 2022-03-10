@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
