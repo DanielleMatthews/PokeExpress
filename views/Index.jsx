@@ -11,10 +11,10 @@ class Index extends React.Component{
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />                    
                 <title> Pokémon Index </title>
-                <link rel="stylesheet" href="/css/app.css" />
             </head>
             <body>
                 <div>
+                <link rel="stylesheet" href="/css/app.css" />
                     <h1> All Pokémon </h1>
                     <ul>
                         {pokemon.map((poke, i) => {
