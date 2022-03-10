@@ -2,3 +2,6 @@ hmtl{
     background-color: rgb(156, 134, 218);
     text-align: center;
 }
+ul{
+    list-style-type: none;
+}
