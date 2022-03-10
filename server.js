@@ -14,6 +14,10 @@ app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
 
+//HOME
+app.get('/', (req, res) => {
+    res.render('Home')
+})
 
 app.get('/pokemon/seed', (req, res)=>{
   Pokemon.create([
@@ -54,10 +58,6 @@ app.get('/pokemon/seed', (req, res)=>{
     })
 })
 
-//HOME
-app.get('/', (req, res) => {
-    res.send('Home')
-})
 
 //index show ALL
 app.get('/pokemon', function(req, res){
