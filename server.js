@@ -5,7 +5,7 @@ const pokemon = require('./models/pokemon.js')
 const mongoose = require('mongoose')
 const Pokemon = require('./models/pokemon.js')
 const methodOverride = require('method-override')
-const port = 3000
+const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
@@ -130,6 +130,6 @@ mongoose.connection.once('open', ()=> {
     console.log('connected to mongo');
 })
 
-app.listen(port, () => {
-    console.log('listening', port)
+app.listen(PORT, () => {
+    console.log('listening', PORT)
 })
