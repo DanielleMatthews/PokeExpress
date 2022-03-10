@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000
 
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride('_method'))
+app.use(express.static('public'))
 
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
@@ -16,16 +17,7 @@ app.engine('jsx', require('express-react-views').createEngine())
 app.get('/', (req, res) => {
     res.send('<h1> Welcome to the Pokémon App!! </h1>')
 })
-// const pokemon = [
-//     {name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur"},
-//     {name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur"},
-//     {name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur"},
-//     {name: "charmander", img: "http://img.pokemondb.net/artwork/charmander"},
-//     {name: "charizard", img: "http://img.pokemondb.net/artwork/charizard"},
-//     {name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle"},
-//     {name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle"},
-//     {name: "jigglypuff", img: "http://img.pokemondb.net/artwork/jigglypuff"}
-//  ]
+
 app.get('/pokemon/seed', (req, res)=>{
   Pokemon.create([
       {
