@@ -5,6 +5,8 @@ class Show extends React.Component{
         // console.log(pokemon.name)
         return(
             <div> 
+                <link rel="stylesheet" href="/css/app.css" />
+
                 <h1> Gotta Catch Em All </h1>
                 <ul>  
                     <li>
